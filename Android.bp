@@ -17,6 +17,18 @@ kernel_headers {
 }
 
 kernel_headers {
+    name: "qti_audio_kernel_uapi",
+    vendor_available: true,
+    recovery_available: true,
+}
+
+kernel_headers {
+    name: "audio_kernel_headers",
+    vendor_available: true,
+    recovery_available: true,
+}
+
+kernel_headers {
     name: "qti_ipa_kernel_headers",
     vendor_available: true,
     recovery_available: true,
