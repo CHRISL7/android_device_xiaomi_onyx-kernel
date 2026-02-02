@@ -15,6 +15,13 @@ TMP_DIR=$(mktemp -d)
 EXTRACT_KERNEL=true
 declare -a MODULE_FOLDERS=("vendor_ramdisk" "vendor_dlkm" "system_dlkm")
 
+MKDTBOIMG="${SRC_ROOT}/system/libufdt/utils/src/mkdtboimg.py"
+
+declare -a DTBO_PANEL_PATCHES=(
+    "Onyx:dsi_o10u_36_02_0b_dsc_vid"
+    "Onyx:dsi_o10u_42_02_0a_dsc_vid"
+)
+
 while [ "${#}" -gt 0 ]; do
     case "${1}" in
         -n | --no-kernel )
@@ -63,14 +70,39 @@ ${SRC_ROOT}/system/tools/mkbootimg/unpack_bootimg.py \
 
 curl -sSL "https://raw.githubusercontent.com/PabloCastellano/extract-dtb/master/extract_dtb/extract_dtb.py" > ${TMP_DIR}/extract_dtb.py
 
-# Copy
+# Copy DTBs from vendor_boot
 python3 "${TMP_DIR}/extract_dtb.py" "${TMP_DIR}/vendor_boot.out/dtb" -o "${TMP_DIR}/dtbs" > /dev/null
 find "${TMP_DIR}/dtbs" -type f -name "*.dtb" \
     -exec cp {} "${MY_DIR}/dtbs" \; \
     -exec printf "  - dtbs/" \; \
     -exec basename {} \;
-cp -f "${DUMP}/dtbo.img" "${MY_DIR}/dtbs/dtbo.img"
-echo "  - dtbs/dtbo.img"
+
+echo "Processing dtbo.img..."
+
+cp -f "${DUMP}/dtbo.img" "${TMP_DIR}/dtbo.img"
+
+python3 "${TMP_DIR}/extract_dtb.py" "${TMP_DIR}/dtbo.img" -o "${TMP_DIR}/dtbo" > /dev/null
+
+for DTBO_PANEL_PATCH in "${DTBO_PANEL_PATCHES[@]}"; do
+    DTBO_PANEL_PATCH=(${DTBO_PANEL_PATCH//:/ })
+    device=${DTBO_PANEL_PATCH[0]}
+    panel=${DTBO_PANEL_PATCH[1]}
+
+    find "${TMP_DIR}/dtbo" -type f -name "*${device}*.dtb" -exec grep -q "${panel}" {} \; \
+        -exec bash -c '
+            # Requer fdtget e fdtput instalados no sistema (parte do pacote device-tree-compiler)
+            dt_node="$(fdtget -t s "{}" /__symbols__ "'${panel}'")";
+            if [ ! -z "$dt_node" ]; then
+                fdtput -t i "{}" "$dt_node" qcom,dsi-supported-dfps-list 120 90 60;
+                echo "    + Patched ${panel} (removed 30Hz support)"
+            fi
+        ' \;
+done
+
+python3 "${MKDTBOIMG}" \
+    create "${MY_DIR}/dtbs/dtbo.img" --page_size=4096 "${TMP_DIR}/dtbo/"*.dtb
+
+echo "  - dtbs/dtbo.img (Patched)"
 
 ### Modules
 # Cleanup / Preparation
