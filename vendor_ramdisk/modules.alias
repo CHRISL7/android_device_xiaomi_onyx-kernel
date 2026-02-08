@@ -547,6 +547,8 @@ alias of:N*T*Cqcom,i2c-geniC* i2c_msm_geni
 alias platform:sys_pm_vx sys_pm_vx
 alias of:N*T*Cqcom,sun-dispcc dispcc_sun
 alias of:N*T*Cqcom,sun-dispccC* dispcc_sun
+alias of:N*T*Cqcom,sun-dispcc_mx dispcc_sun
+alias of:N*T*Cqcom,sun-dispcc_mxC* dispcc_sun
 alias fixed-partitions ofpart
 alias ofoldpart ofpart
 alias of:N*T*Cfixed-partitions ofpart
@@ -786,12 +788,8 @@ alias of:N*T*Cqcom,kera-qfprom nvmem_qfprom
 alias of:N*T*Cqcom,kera-qfpromC* nvmem_qfprom
 alias of:N*T*Cqcom,ravelin-qfprom nvmem_qfprom
 alias of:N*T*Cqcom,ravelin-qfpromC* nvmem_qfprom
-alias of:N*T*Csc8581 sc8581
-alias of:N*T*Csc8581C* sc8581
-alias of:N*T*Csc8585_master sc8581
-alias of:N*T*Csc8585_masterC* sc8581
-alias of:N*T*Csc8585_slave sc8581
-alias of:N*T*Csc8585_slaveC* sc8581
+alias of:N*T*Cqcom,parrot-qfprom nvmem_qfprom
+alias of:N*T*Cqcom,parrot-qfpromC* nvmem_qfprom
 alias of:N*T*Cqcom,msm-hdcp msm_drm
 alias of:N*T*Cqcom,msm-hdcpC* msm_drm
 alias of:N*T*Cqcom,mdp4 msm_drm
@@ -880,8 +878,6 @@ alias amba:d???BB908 coresight_funnel
 alias amba:d???BB9EB coresight_funnel
 alias of:N*T*Cqcom,tuna-dispcc dispcc_tuna
 alias of:N*T*Cqcom,tuna-dispccC* dispcc_tuna
-alias of:N*T*Cqcom,tuna-dispcc-v1 dispcc_tuna
-alias of:N*T*Cqcom,tuna-dispcc-v1C* dispcc_tuna
 alias of:N*T*Cqcom,kera-dispcc dispcc_tuna
 alias of:N*T*Cqcom,kera-dispccC* dispcc_tuna
 alias of:N*T*Cqcom,spmi-sdam nvmem_qcom_spmi_sdam
@@ -968,8 +964,6 @@ alias of:N*T*Cqcom,sun-tcsrcc tcsrcc_sun
 alias of:N*T*Cqcom,sun-tcsrccC* tcsrcc_sun
 alias of:N*T*Cqcom,tuna-gcc gcc_tuna
 alias of:N*T*Cqcom,tuna-gccC* gcc_tuna
-alias of:N*T*Cqcom,tuna-gcc-v1 gcc_tuna
-alias of:N*T*Cqcom,tuna-gcc-v1C* gcc_tuna
 alias platform:qcom-spmi-mpp pinctrl_spmi_mpp
 alias of:N*T*Cqcom,pm8019-mpp pinctrl_spmi_mpp
 alias of:N*T*Cqcom,pm8019-mppC* pinctrl_spmi_mpp
@@ -1013,6 +1007,12 @@ alias of:N*T*Cqcom,rpmh-stats-v4 qcom_stats
 alias of:N*T*Cqcom,rpmh-stats-v4C* qcom_stats
 alias of:N*T*Cqcom,sdm845-rpmh-stats qcom_stats
 alias of:N*T*Cqcom,sdm845-rpmh-statsC* qcom_stats
+alias of:N*T*Csc8581 sc8581_sy6541
+alias of:N*T*Csc8581C* sc8581_sy6541
+alias of:N*T*Csc8585_master sc8581_sy6541
+alias of:N*T*Csc8585_masterC* sc8581_sy6541
+alias of:N*T*Csc8585_slave sc8581_sy6541
+alias of:N*T*Csc8585_slaveC* sc8581_sy6541
 alias of:N*T*Cqcom,ipcc qcom_ipcc
 alias of:N*T*Cqcom,ipccC* qcom_ipcc
 alias of:N*T*Csc,sc96281-wireless-charger sc96281_comp

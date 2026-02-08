@@ -3,7 +3,8 @@
 /system/lib/modules/zsmalloc.ko:
 /system/lib/modules/libarc4.ko:
 /system/lib/modules/virtio_pci_modern_dev.ko:
-/system/lib/modules/virtio_pci.ko: /system/lib/modules/virtio_pci_modern_dev.ko
+/system/lib/modules/virtio_pci_legacy_dev.ko:
+/system/lib/modules/virtio_pci.ko: /system/lib/modules/virtio_pci_legacy_dev.ko /system/lib/modules/virtio_pci_modern_dev.ko
 /system/lib/modules/virtio_balloon.ko:
 /system/lib/modules/cctrng.ko:
 /system/lib/modules/virtio_console.ko:

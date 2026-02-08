@@ -48,6 +48,7 @@ alias usb:v17EFp3054d*dc*dsc*dp*ic*isc*ip*in* r8152
 alias usb:v17EFp3062d*dc*dsc*dp*ic*isc*ip*in* r8152
 alias usb:v17EFp3069d*dc*dsc*dp*ic*isc*ip*in* r8152
 alias usb:v17EFp3082d*dc*dsc*dp*ic*isc*ip*in* r8152
+alias usb:v17EFp3098d*dc*dsc*dp*ic*isc*ip*in* r8152
 alias usb:v17EFp7205d*dc*dsc*dp*ic*isc*ip*in* r8152
 alias usb:v17EFp720Cd*dc*dsc*dp*ic*isc*ip*in* r8152
 alias usb:v17EFp7214d*dc*dsc*dp*ic*isc*ip*in* r8152
