@@ -3,8 +3,8 @@
  * Copyright (c) 2018-2020 The Linux Foundation. All rights reserved.
  */
 
-#ifndef _UAPI_NFCINFO_H_
-#define _UAPI_NFCINFO_H_
+#ifndef _NFCINFO_H_
+#define _NFCINFO_H_
 
 #include <linux/ioctl.h>
 

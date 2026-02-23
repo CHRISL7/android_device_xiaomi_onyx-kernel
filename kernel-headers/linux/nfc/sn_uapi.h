@@ -18,8 +18,8 @@
  * Copyright (c) 2022-2023 Qualcomm Innovation Center, Inc. All rights reserved.
  ****************************************************************************/
 
-#ifndef _UAPI_SN_UAPI_H_
-#define _UAPI_SN_UAPI_H_
+#ifndef _SN_UAPI_H_
+#define _SN_UAPI_H_
 
 #include <linux/ioctl.h>
 

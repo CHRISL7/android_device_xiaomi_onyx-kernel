@@ -35,12 +35,6 @@ kernel_headers {
 }
 
 kernel_headers {
-    name: "qti_nfc_kernel_headers",
-    vendor_available: true,
-    recovery_available: true,
-}
-
-kernel_headers {
     name: "qti_synx_kernel_headers",
     vendor_available: true,
     recovery_available: true,
@@ -50,4 +44,12 @@ kernel_headers {
     name: "smmu_proxy_uapi_header",
     vendor_available: true,
     recovery_available: true,
+}
+
+cc_library_headers {
+    name: "qti_nfc_kernel_headers",
+    export_include_dirs: [
+        "kernel-headers/linux/nfc",
+    ],
+    vendor_available: true,
 }
